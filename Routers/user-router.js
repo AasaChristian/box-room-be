@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
 
-const Users = require('../Models/users-model');
+const Users = require('../Models/user-model');
 
 
 const {jwtSecret} = require('../auth/secrets');
