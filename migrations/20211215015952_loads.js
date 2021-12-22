@@ -8,7 +8,7 @@ exports.up = function(knex) {
         .inTable("materials")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
-
+        tbl.timestamp("dateAdded", 20).defaultTo(knex.fn.now());
         tbl.integer("trailerId")
         .unsigned()
         .notNullable()
@@ -16,6 +16,8 @@ exports.up = function(knex) {
         .inTable("trailers")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
+        tbl.integer("count").notNullable();
+
 
     })
 };
