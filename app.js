@@ -4,6 +4,8 @@ const server = require('http').createServer(app);
 
 const Users = require('./Routers/user-router')
 const Trailers = require('./Routers/trailer-router')
+const Materials = require('./Routers/material-router')
+
 const Port = process.env.PORT || 5000;
 
 const cors = require('cors')
@@ -28,4 +30,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', Users);
 app.use('/api/trailers', Trailers);
+app.use('/api/materials', Materials);
+
 
