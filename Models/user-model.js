@@ -3,7 +3,6 @@ const db = require("../db-config");
 module.exports ={
     findByUserName,
     addUser,
-
 };
 
 function findByUserName(username){
@@ -14,6 +13,4 @@ function findByUserName(username){
 
 function addUser(user){
     return db("users").insert(user).returning("*")
-    
-
 }
