@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 
 
-const Materials = require('../Models/material-model');
+const Materials = require('../Models/materials-model');
 
 // for endpoints beginning with /api/auth
 
@@ -43,7 +43,7 @@ const Materials = require('../Models/material-model');
 router.post('/add', (req, res) => {
   let material = req.body;
   // console.log(exercise, "exercise")
-  Materials.addTrailer(material)
+  Materials.addMaterial(material)
     .then(saved => {
         // console.log(saved, "saved")
       res.status(201).json(saved);
