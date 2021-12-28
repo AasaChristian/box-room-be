@@ -5,6 +5,8 @@ const server = require('http').createServer(app);
 const Users = require('./Routers/user-router')
 const Trailers = require('./Routers/trailer-router')
 const Materials = require('./Routers/material-router')
+const Loads = require('./Routers/load-router')
+
 
 const Port = process.env.PORT || 5000;
 
@@ -30,6 +32,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', Users);
 app.use('/api/trailers', Trailers);
-app.use('/api/materials', Materials);
-
+app.use('/api/materials', Materials); Loads
+app.use('/api/loads', Loads); 
 
