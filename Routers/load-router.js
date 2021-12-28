@@ -37,43 +37,28 @@ console.log(load, "load")
     });
 });
 
-// router.put('/update/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {
 
-//   console.log(req.body,"body")
-//   let { name, link, userId, exerciseId, sets, reps, weight, completion} = req.body;
-//   let id = req.params.id
-//   const updateObj = {
-//     name: name,
-//     link: link,
-//     userId: userId,
-//     exerciseId: exerciseId,
-//     sets: sets,
-//     reps, reps,
-//     weight: weight,
-//     completion: completion
-// }
-// Regimen.updateRegimens(updateObj, id, userId)
+  console.log(req.body,"body")
+  let {userId, tagNumber, materialId, trailerId, count } = req.body;
+  let id = req.params.id
+  const updateObj = {
+    tagNumber:tagNumber,
+    materialId: materialId,
+    trailerId: trailerId,
+    count: count
+}
+Loads.updateLoad(updateObj, id)
 
-// .then(updated => {
+.then(updated => {
 
-//     const uid = updated[0].userId
-//     console.log(userId, "userId HERE")
-//     Regimen.findByuserId(uid)
-//     .then(found => {
-//       console.log("here")
-//         if (!found){
-//         res.status(400).json({message:`User has no regimen`})  
-//         }
-//         res.status(200).json(found)
-//         console.log(found)
-//     })
-//     .catch(err => {
-//         console.log(err,"catch")
-//     })
+console.log(updated, "updated")
+res.status(201).json(updated);
 
-// }).catch(err => res.status(500).json({message: "update unsuccesful"}), console.log("error here"))
+
+}).catch(err => res.status(500).json({message: "update unsuccesful"}), console.log("error here"))
  
-// });
+});
 
 // router.put('/unComplete/:link', (req, res) => {
 
