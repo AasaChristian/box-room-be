@@ -16,6 +16,14 @@ exports.up = function(knex) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
         tbl.integer("count").notNullable();
+        tbl.integer("maidenTrailerId").notNullable();
+        tbl.integer("userId")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
         tbl.timestamp("dateAdded", 20).defaultTo(knex.fn.now());
     })
 };
