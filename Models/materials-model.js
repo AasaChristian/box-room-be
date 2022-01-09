@@ -3,7 +3,9 @@ const db = require("../db-config.js");
 module.exports ={
     addMaterial,
     getAll,
-    remove
+    remove,
+    findById,
+    updateMaterial
 };
 
 function getAll(){
@@ -18,4 +20,15 @@ function remove(id){
     return db("materials")
     .where({id})
     .del();
+}
+
+function findById(id){
+    return db("materials").where({id})
+}
+
+async  function updateMaterial(material, id){
+    await db("materials")
+    .where({id})
+    .update(material)
+    return findById(id)  
 }
