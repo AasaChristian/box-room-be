@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', Users);
 app.use('/api/trailers', Trailers);
-app.use('/api/materials', Materials); Loads
+app.use('/api/materials', Materials); 
 app.use('/api/loads', Loads); 
 

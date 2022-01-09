@@ -12,11 +12,12 @@ router.get('/find/:id', (req, res) => {
 const id = req.params.id
     Loads.findById(id)
     .then(found => {
-        if (!found){
-        res.status(400).json({message:`no loads found`})  
-        }
-        res.status(200).json(found)
-        console.log(found)
+      console.log(found, "found")
+        // if (!found){
+        // res.status(400).json({message:`no loads found`})  
+        // }
+        // res.status(200).json(found)
+        // console.log(found)
     })
     .catch(err => {
         console.log(err,"catch")
