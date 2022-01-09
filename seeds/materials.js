@@ -1,7 +1,7 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('materials').del()
+  return knex('materials')
     .then(function () {
       // Inserts seed entries
       return knex('materials').insert([
@@ -11,8 +11,8 @@ exports.seed = function(knex) {
         {id: 4, tagNumber: '34593', materialname: '40LbTops'},
         {id: 5, tagNumber: '15807', materialname: 'wings1'},
         {id: 6, tagNumber: '15080', materialname: 'wings2'},
-        {id: 7, tagNumber: '964', materialname: 'Wog1'},
-        {id: 8, tagNumber: '965', materialname: 'Wog2'},
+        {id: 7, tagNumber: '17964', materialname: 'Wog1'},
+        {id: 8, tagNumber: '17965', materialname: 'Wog2'},
 
       ]);
     });
