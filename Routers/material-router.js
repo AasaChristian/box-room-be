@@ -7,38 +7,39 @@ const Materials = require('../Models/materials-model');
 
 // for endpoints beginning with /api/auth
 
-// router.get('/all', (req, res) => {
+router.get('/all', (req, res) => {
 
 
-//   Exercises.getAll()
-//   .then(found => {
-//       if (!found){
-//       res.status(400).json({message:`exercises at id ${id} doesn't exist`})  
-//       }
-//       res.status(200).json(found)
-//   })
-//   .catch(err => {
-//       console.log(err,"catch")
-//   })
+  Materials.getAll()
+  .then(found => {
+    console.log(found, 'materials found')
+      if (!found){
+      res.status(400).json({message:"No materials found"})  
+      }
+      res.status(200).json(found)
+  })
+  .catch(err => {
+      console.log(err,"catch")
+  })
   
-// })
+})
 
-// router.get('/find/:id', (req, res) => {
-//     let id = req.params.id
-//     // console.log(id, "id")
+router.get('/find/:id', (req, res) => {
+    let id = req.params.id
+    // console.log(id, "id")
 
-//     Exercises.findById(id)
-//     .then(found => {
-//         if (!found){
-//         res.status(400).json({message:`exercises at id ${id} doesn't exist`})  
-//         }
-//         res.status(200).json(found)
-//     })
-//     .catch(err => {
-//         console.log(err,"catch")
-//     })
+    Materials.findById(id)
+    .then(found => {
+        if (!found){
+        res.status(400).json({message:`materials at id ${id} doesn't exist`})  
+        }
+        res.status(200).json(found)
+    })
+    .catch(err => {
+        console.log(err,"catch")
+    })
     
-// })
+})
 
 router.post('/add', (req, res) => {
   let material = req.body;
