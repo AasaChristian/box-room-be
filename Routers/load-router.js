@@ -13,11 +13,11 @@ const id = req.params.id
     Loads.findById(id)
     .then(found => {
       console.log(found, "found")
-        // if (!found){
-        // res.status(400).json({message:`no loads found`})  
-        // }
-        // res.status(200).json(found)
-        // console.log(found)
+        if (!found){
+        res.status(400).json({message:`no loads found`})  
+        }
+        res.status(200).json(found)
+        console.log(found)
     })
     .catch(err => {
         console.log(err,"catch")
@@ -31,11 +31,11 @@ router.get('/all', (req, res) => {
       Loads.getAll()
       .then(found => {
         console.log(found, "found")
-          // if (!found){
-          // res.status(400).json({message:`no loads found`})  
-          // }
-          // res.status(200).json(found)
-          // console.log(found)
+          if (!found){
+          res.status(400).json({message:`no loads found`})  
+          }
+          res.status(200).json(found)
+          console.log(found)
       })
       .catch(err => {
           console.log(err,"catch")
@@ -86,11 +86,11 @@ router.delete('/remove/:id', (req, res) => {
     Loads.remove(id)
   .then(removed => {
     console.log(removed, "removed")
-      // if (removed == 1){
-      //   res.status(200).json({message: "load was removed"})
-      // } else {
-      //   res.status(500).json({message: " error finding regimen"})
-      // }
+      if (removed == 1){
+        res.status(200).json({message: "load was removed"})
+      } else {
+        res.status(500).json({message: " error finding load"})
+      }
       
   }).catch(err => res.status(500).json({message: "delete unsuccesful"}))
    
