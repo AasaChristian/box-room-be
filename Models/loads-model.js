@@ -4,8 +4,13 @@ module.exports ={
     addLoad,
     remove,
     updateLoad,
-    findById
+    findById,
+    getAll
 };
+function getAll(){
+    return db("loads").select("*")
+     
+}
 
 function findById(id){
     return db("loads").where({id})
