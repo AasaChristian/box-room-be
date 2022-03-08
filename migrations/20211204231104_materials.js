@@ -3,6 +3,7 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('tagNumber').notNullable();
         tbl.string('materialname').notNullable();
+        tbl.binary('img', 1000000);
 
     })
 };
