@@ -44,7 +44,11 @@ router.get('/find/:id', (req, res) => {
 router.post('/add', (req, res) => {
   let material = req.body;
   console.log(material, "material")
-  Materials.addMaterial(material)
+  const newObj = {
+    tagNumber : material.tagNumber,
+    materialname : material.materialname
+  }
+  Materials.addMaterial(newObj)
     .then(saved => {
         console.log(saved, "saved")
       res.status(201).json(saved);
@@ -74,12 +78,12 @@ Materials.updateMaterial(updateObj, id)
 router.delete('/remove/:id', (req, res) => {
     let id = req.params.id
 
-  Exercises.remove(id)
+  Materials.remove(id)
   .then(removed => {
       if (removed == 1){
-        res.status(200).json({message: "exercies was removed"})
+        res.status(200).json({message: "material was removed"})
       } else {
-        res.status(500).json({message: " error finding exercise"})
+        res.status(500).json({message: " error finding material"})
       }
       
   }).catch(err => res.status(500).json({message: "delete unsuccesful"}))

@@ -9,10 +9,13 @@ module.exports ={
 };
 
 function getAll(){
-    return db("materials").select("*").orderBy('tagNumber')
+    return db("materials").select("*").orderBy('materialname')
+    // return db("materials").select("*")
+
 }
 
 function addMaterial(material){
+    console.log(material, "Models")
     return db("materials").insert(material).returning("*")
 }
 
