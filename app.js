@@ -17,13 +17,13 @@ server.listen(Port, () => {
   console.log(`Listening at ${Port}`);
 });
 
-// var corsOptions = {
-//     // origin: process.env.BASE_URL || "http://localhost:3000",
-//     origin: "http://localhost:3000",
-//     methods: "GET,PUT,POST,DELETE",
-//        credentials: false
-// }
-// app.use(cors(corsOptions));
+var corsOptions = {
+    origin: process.env.BASE_URL || "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    methods: "GET,PUT,POST,DELETE",
+       credentials: false
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
