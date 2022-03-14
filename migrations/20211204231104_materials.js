@@ -2,7 +2,7 @@ exports.up = function(knex) {
     return knex.schema.createTable("materials", tbl => {
         tbl.increments();
         tbl.string('tagNumber').notNullable();
-        tbl.string('materialname').notNullable();
+        tbl.string('name').notNullable();
         tbl.binary('img', 1000000);
 
     })
