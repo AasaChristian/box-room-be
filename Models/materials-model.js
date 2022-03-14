@@ -9,7 +9,7 @@ module.exports ={
 };
 
 function getAll(){
-    return db("materials").select("*").orderBy('materialname')
+    return db("materials").select("*").orderBy('name')
     // return db("materials").select("*")
 
 }

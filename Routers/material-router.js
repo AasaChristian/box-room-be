@@ -46,7 +46,7 @@ router.post('/add', (req, res) => {
   console.log(material, "material")
   const newObj = {
     tagNumber : material.tagNumber,
-    materialname : material.materialname
+    materialname : material.name
   }
   Materials.addMaterial(newObj)
     .then(saved => {
@@ -59,7 +59,7 @@ router.post('/add', (req, res) => {
 });
 
 router.put('/update/:id', (req, res) => {
-  let { tagNumber, materialname } = req.body;
+  let { tagNumber, name } = req.body;
   let id = req.params.id
   const updateObj = {
     tagNumber: tagNumber,
